@@ -3,37 +3,37 @@
 
 class CarMethodsMixin:
     """class with methods for Cars"""
-    def get_engine_type(self):
+    def get_engine(self):
         """
         :return: engine type
         """
-        return self.engine_type
+        return self.engine
 
-    def get_wheel_type(self):
+    def get_wheels(self):
         """
         :return: wheel type
         """
-        return self.wheel_type
+        return self.wheels
 
 
 class Car1(CarMethodsMixin):
     """class to represent car with 1HZ engine and continental wheels"""
     def __init__(self):
-        self.engine_type = "1HZ"
-        self.wheel_type = "Continental"
+        self.engine = "1HZ"
+        self.wheels = "Continental"
 
 
 class Car2(CarMethodsMixin):
     """class to represent car with 1HZ engine and continental wheels"""
 
     def __init__(self):
-        self.engine_type = "1HD-T"
-        self.wheel_type = "Pirelli"
+        self.engine = "1HD-T"
+        self.wheels = "Pirelli"
 
 
 class NewCar(Car1, Car2, CarMethodsMixin):
     """Class to represent a NewCar on base of Car1 and Car2"""
     def __init__(self):
         super().__init__()
-        self.wheels_type = Car1().wheel_type
-        self.engine_type = Car2().engine_type
+        self.wheels = Car1().wheels
+        self.engine = Car2().engine
