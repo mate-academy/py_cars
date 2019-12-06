@@ -30,18 +30,6 @@ class Car2(CarMethodsMixin):
         self.engine_type = "1HD-T"
         self.wheel_type = "Pirelli"
 
-    def get_engine_type(self):
-        """
-        :return: engine type
-        """
-        return self.engine_type
-
-    def get_wheel_type(self):
-        """
-        :return: wheel type
-        """
-        return self.wheel_type
-
 
 class NewCar(Car1, Car2, CarMethodsMixin):
     """Class to represent a NewCar on base of Car1 and Car2"""
