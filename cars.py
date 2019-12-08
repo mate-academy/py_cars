@@ -24,14 +24,14 @@ class MiximCar:
 
 class Car1(MiximCar):
     """Class Car1 has attributes wheel='Continental', engine='1HZ'"""
-    wheel='Continental'
-    engine='1HZ'
+    wheel = 'Continental'
+    engine = '1HZ'
 
 
 class Car2(MiximCar):
     """Class Car2 has attributes wheel='Pirelli', engine='1HD-T'"""
-    wheel='Pirelli'
-    engine='1HD-T'
+    wheel = 'Pirelli'
+    engine = '1HD-T'
 
 
 class NewCar(Car1, Car2):
