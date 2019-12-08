@@ -4,42 +4,37 @@ with wheels from the first, and an engine from the second.
 """
 
 
-class HasAllCar:
+class MiximCar:
     """
-    Parent class Car1, Car2, Newcar
+    Parent class Car1, Car2, NewCar
     """
-    def __init__(self):
-        self.wheel_type = ''
-        self.engine_type = ''
+    wheel = ''
+    engine = ''
 
-    def get_wheel_type(self):
+    @classmethod
+    def get_wheel_type(cls):
         """Get info about wheels"""
-        return self.wheel_type
+        return cls.wheel
 
-    def get_engine_type(self):
+    @classmethod
+    def get_engine_type(cls):
         """Get info about engines"""
-        return self.engine_type
+        return cls.engine
 
 
-class Car1(HasAllCar):
+class Car1(MiximCar):
     """Class Car1 has attributes wheel='Continental', engine='1HZ'"""
-    def __init__(self, wheel='Continental', engine='1HZ'):
-        super().__init__()
-        self.wheel_type = wheel
-        self.engine_type = engine
+    wheel='Continental'
+    engine='1HZ'
 
 
-class Car2(HasAllCar):
+class Car2(MiximCar):
     """Class Car2 has attributes wheel='Pirelli', engine='1HD-T'"""
-    def __init__(self, wheel='Pirelli', engine='1HD-T'):
-        super().__init__()
-        self.wheel_type = wheel
-        self.engine_type = engine
+    wheel='Pirelli'
+    engine='1HD-T'
 
 
 class NewCar(Car1, Car2):
     """Class Newcar has attributes class Car1 wheel_type and class Car2 engine_type"""
-    def __init__(self):
-        super().__init__()
-        self.wheel_type = Car1().wheel_type
-        self.engine_type = Car2().engine_type
+    wheel = Car1.wheel
+    engine = Car2.engine
