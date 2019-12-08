@@ -43,4 +43,3 @@ class NewCar(Car1, Car2):
         super().__init__()
         self.wheel_type = Car1().get_wheel_type()
         self.engine_type = Car2().get_engine_type()
-
