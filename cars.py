@@ -1,67 +1,111 @@
 """
-Cars objects construction
+Built Car1,Car2,NewCar objects
+using pattern Builder
 """
 
 
-class Car:
+class Wheel:
     """
-    general Car class
+    wheel types
     """
-    def __init__(self, wheel, engine):
+    def __init__(self):
         """
+        defining wheel types
+        """
+        self._wheel_type_1 = 'Continental'
+        self._wheel_type_2 = 'Pirelli'
 
-        :param wheel:
-        :param engine:
+    def get_wheel_type_1(self):
         """
-        self.wheel = wheel
-        self.engine = engine
+        return wheel type 1
+        :return:
+        """
+        return self._wheel_type_1
+
+    def get_wheel_type_2(self):
+        """
+        return wheel type 2
+        :return:
+        """
+        return self._wheel_type_2
+
+
+class Engine:
+    """
+    engine types
+    """
+    def __init__(self):
+        """
+        defining engine types
+        """
+        self._engine_type_1 = '1HZ'
+        self._engine_type_2 = '1HD-T'
+
+    def get_engine_type_1(self):
+        """
+        return engine type 1
+        :return:
+        """
+        return self._engine_type_1
+
+    def get_engine_type_2(self):
+        """
+        return engine type 2
+        :return:
+        """
+        return self._engine_type_2
+
+
+class CarBlueprint:
+    """
+    how to build a Car
+    """
+    def __init__(self):
+        self._wheel_type = None
+        self._engine_type = None
+        self._wheel = Wheel()
+        self._engine = Engine()
 
     def get_wheel_type(self):
         """
-        return wheel model
+        Return wheel type
         :return:
         """
-        return f"{self.wheel}"
+        return self._wheel_type
 
     def get_engine_type(self):
         """
-        return engine model
+        Return engine type
         :return:
         """
-        return f"{self.engine}"
+        return self._engine_type
 
 
-class Car1(Car):
+class Car1(CarBlueprint):
     """
-    instance of the Car object
-    with parts of type 1
-    """
-    def __init__(self):
-        """
-        setting parts model's of Car type 1
-        """
-        super().__init__(wheel='Continental', engine='1HZ')
-
-
-class Car2(Car):
-    """
-    instance of the Car object
-    with parts of type 2
+    Model Car1 object
     """
     def __init__(self):
-        """
-        setting parts model's of Car type 2
-        """
-        super().__init__(wheel='Pirelli', engine='1HD-T')
+        super().__init__()
+        self._wheel_type = self._wheel.get_wheel_type_1()
+        self._engine_type = self._engine.get_engine_type_1()
 
 
-class NewCar(Car):
+class Car2(CarBlueprint):
     """
-    instance of the Car object
-    with combined parts of type 1 and 2
+    Model Car2 object
     """
     def __init__(self):
-        """
-        setting parts model's combined of two types
-        """
-        super().__init__(wheel=Car1().wheel, engine=Car2().engine)
+        super().__init__()
+        self._wheel_type = self._wheel.get_wheel_type_2()
+        self._engine_type = self._engine.get_engine_type_2()
+
+
+class NewCar(CarBlueprint):
+    """
+    Combined model NewCar object
+    """
+    def __init__(self):
+        super().__init__()
+        self._wheel_type = self._wheel.get_wheel_type_1()
+        self._engine_type = self._engine.get_engine_type_2()
