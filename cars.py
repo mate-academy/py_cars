@@ -3,48 +3,42 @@ and designs prototype of the new car based on these features"""
 
 
 class Car1:
-    """This class represents the car with some tyres and engine"""
-    def __init__(self):
-        """Define the characteristics of Car1 tyres and engine"""
-        self.wheel_type = 'Continental'
-        self.engine_type = '1HZ'
+    """This class represents the car with predetermined tyres and engine"""
 
-    def get_wheel_type(self):
+    @staticmethod
+    def get_wheel_type():
         """Provide Car1 tyres type"""
-        return self.wheel_type
+        return "Continental"
 
-    def get_engine_type(self):
+    @staticmethod
+    def get_engine_type():
         """Provide Car1 engine type"""
-        return self.engine_type
+        return "1HZ"
 
 
 class Car2:
-    """This class represents the car with some tyres and engine too"""
-    def __init__(self):
-        """Define the characteristics of Car2 tyres and engine"""
-        self.wheel_type = 'Pirelli'
-        self.engine_type = '1HD-T'
+    """This class represents the car with predetermined tyres and engine too"""
 
-    def get_wheel_type(self):
+    @staticmethod
+    def get_wheel_type():
         """Provide Car2 tyres type"""
-        return self.wheel_type
+        return "Pirelli"
 
-    def get_engine_type(self):
+    @staticmethod
+    def get_engine_type():
         """Provide Car2 engine type"""
-        return self.engine_type
+        return "1HD-T"
 
 
 class NewCar:
     """This class represents the prototype of the car
-    with merged Car1 and Car2 features"""
+    with merged Car1 and Car2 predetermined features"""
     @staticmethod
     def get_wheel_type():
         """Provide the Car1 tyres type"""
-        car = Car1()
-        return car.get_wheel_type()
+        return Car1.get_wheel_type()
 
     @staticmethod
     def get_engine_type():
         """Provide the Car2 engine type"""
-        car = Car2()
-        return car.get_engine_type()
+        return Car2.get_engine_type()
