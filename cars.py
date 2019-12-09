@@ -3,42 +3,50 @@ and designs prototype of the new car based on these features"""
 
 
 class Car1:
-    """This class represents the car with predetermined tyres and engine"""
+    """This class represents the car with some tyres and engine"""
+    def __init__(self):
+        """Define the characteristics of Car1 tyres and engine"""
+        self.wheel_type = 'Continental'
+        self.engine_type = '1HZ'
 
-    @staticmethod
-    def get_wheel_type():
+    def get_wheel_type(self):
         """Provide Car1 tyres type"""
-        return "Continental"
+        return self.wheel_type
 
-    @staticmethod
-    def get_engine_type():
+    def get_engine_type(self):
         """Provide Car1 engine type"""
-        return "1HZ"
+        return self.engine_type
 
 
 class Car2:
-    """This class represents the car with predetermined tyres and engine too"""
+    """This class represents the car with some tyres and engine too"""
+    def __init__(self):
+        """Define the characteristics of Car2 tyres and engine"""
+        self.wheel_type = 'Pirelli'
+        self.engine_type = '1HD-T'
 
-    @staticmethod
-    def get_wheel_type():
+    def get_wheel_type(self):
         """Provide Car2 tyres type"""
-        return "Pirelli"
+        return self.wheel_type
 
-    @staticmethod
-    def get_engine_type():
+    def get_engine_type(self):
         """Provide Car2 engine type"""
-        return "1HD-T"
+        return self.engine_type
 
 
 class NewCar:
     """This class represents the prototype of the car
-    with merged Car1 and Car2 predetermined features"""
-    @staticmethod
-    def get_wheel_type():
-        """Provide the Car1 tyres type"""
-        return Car1.get_wheel_type()
+    with merged Car1 and Car2 features"""
 
-    @staticmethod
-    def get_engine_type():
+    def __init__(self):
+        """Define the characteristics of Car2 tyres and engine"""
+        self.wheel_type = 'Continental'
+        self.engine_type = '1HD-T'
+
+    def get_wheel_type(self):
+        """Provide the Car1 tyres type"""
+        return self.wheel_type
+
+    def get_engine_type(self):
         """Provide the Car2 engine type"""
-        return Car2.get_engine_type()
+        return self.engine_type
