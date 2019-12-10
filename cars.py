@@ -4,41 +4,71 @@ with wheels from the first, and an engine from the second.
 """
 
 
-class MiximCar:
-    """
-    Parent class Car1, Car2, NewCar
-    """
-    wheel = ''
-    engine = ''
-
-    @classmethod
-    def get_wheel_type(cls):
-        """Get info about wheels"""
-        return cls.wheel
-
-    @classmethod
-    def get_engine_type(cls):
-        """Get info about engines"""
-        return cls.engine
-
-
-class Car1(MiximCar):
-    """Class Car1 has attributes wheel='Continental', engine='1HZ'"""
-    def __init__(self):
-        self.__class__.wheel = 'Continental'
-        self.__class__.engine = '1HZ'
-
-
-class Car2(MiximCar):
-    """Class Car2 has attributes wheel='Pirelli', engine='1HD-T'"""
-    def __init__(self):
-        self.__class__.wheel = 'Pirelli'
-        self.__class__.engine = '1HD-T'
-
-
-class NewCar(Car1, Car2):
-    """Class Newcar has attributes class Car1 wheel_type and class Car2 engine_type"""
+class Wheel:
+    """Class Wheel"""
     def __init__(self):
         super().__init__()
-        self.__class__.wheel = Car1.wheel
-        self.__class__.engine = Car2.engine
+        self.wheels = ['Continental', 'Pirelli']
+
+    def get_wheel_car1(self):
+        """Get wheel for car1"""
+        return self.wheels[0]
+
+    def get_wheel_car2(self):
+        """Get wheel for car2"""
+        return self.wheels[1]
+
+
+class Engine:
+    """Class Engine"""
+    def __init__(self):
+        super().__init__()
+        self.engines = ['1HZ', '1HD-T']
+
+    def get_engine_car1(self):
+        """Get engine for car1"""
+        return self.engines[0]
+
+    def get_engine_car2(self):
+        """Get engine for car2"""
+        return self.engines[1]
+
+
+class CarConstructor(Wheel, Engine):
+    """Class CarConstructor"""
+    def __init__(self):
+        super().__init__()
+        self.wheel = ''
+        self.engine = ''
+
+    def get_wheel_type(self):
+        """Get wheel"""
+        return self.wheel
+
+    def get_engine_type(self):
+        """Get engine"""
+        return self.engine
+
+
+class Car1(CarConstructor):
+    """Class Car1"""
+    def __init__(self):
+        super().__init__()
+        self.wheel = self.get_wheel_car1()
+        self.engine = self.get_engine_car1()
+
+
+class Car2(CarConstructor):
+    """Class Car2"""
+    def __init__(self):
+        super().__init__()
+        self.wheel = self.get_wheel_car2()
+        self.engine = self.get_engine_car2()
+
+
+class NewCar(CarConstructor):
+    """Class NewCar"""
+    def __init__(self):
+        super().__init__()
+        self.wheel = self.get_wheel_car1()
+        self.engine = self.get_engine_car2()
