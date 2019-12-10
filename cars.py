@@ -2,28 +2,71 @@
 A module that represent cars
 Classes
 -------
-Car
-Car1(Car)
-Car2(Car)
-NewCar(Car)
+Wheel
+Engine
+CarConstructor(Wheel, Engine)
+Car1(CarConstructor)
+Car2(CarConstructor)
+NewCar(CarConstructor)
 """
 
 
-class Car:
+class Wheel:
     """
-    Represent general car
-    Attributes
-    ----------
-    wheels : str  --  type of the wheels
-    engine : str -- type of the engine
+    Class that contain wheels for different cars
+
     Methods
     -------
-    get_wheel_type
-    get_engine_type
+    car1_wheels()
+    car2_wheels()
     """
-    def __init__(self, wheels, engine):
-        self.wheels = wheels
-        self.engine = engine
+    @staticmethod
+    def car1_wheels():
+        """Return car1 type of the wheels"""
+        return 'Continental'
+
+    @staticmethod
+    def car2_wheels():
+        """Return car2 type of the wheels"""
+        return 'Pirelli'
+
+
+class Engine:
+    """
+    Class that contain engines for different cars
+
+    Methods
+    -------
+    car1_engine()
+    car2_engine()
+    """
+    @staticmethod
+    def car1_engine():
+        """Return car1 engine type"""
+        return '1HZ'
+
+    @staticmethod
+    def car2_engine():
+        """Return car2 engine type"""
+        return '1HD-T'
+
+
+class CarConstructor(Wheel, Engine):
+    """
+    Construct car blank
+    Attributes
+    ----------
+    wheels
+    engine
+
+    Methods
+    -------
+    get_wheel_type()
+    get_engine_type()
+    """
+    def __init__(self):
+        self.wheels = None
+        self.engine = None
 
     def get_wheel_type(self):
         """Return wheel type"""
@@ -34,25 +77,25 @@ class Car:
         return self.engine
 
 
-class Car1(Car):
-    """
-    A class to represent a unique car - Car1(Car)
-    """
+class Car1(CarConstructor):
+    """Class to create car of a Car1 type"""
     def __init__(self):
-        super().__init__('Continental', '1HZ')
+        super().__init__()
+        self.wheels = self.car1_wheels()
+        self.engine = self.car1_engine()
 
 
-class Car2(Car):
-    """
-    A class to represent a unique car - Car2(Car)
-    """
+class Car2(CarConstructor):
+    """Class to create car of a Car2 type"""
     def __init__(self):
-        super().__init__('Pirelli', '1HD-T')
+        super().__init__()
+        self.wheels = self.car2_wheels()
+        self.engine = self.car2_engine()
 
 
-class NewCar(Car):
-    """
-    A class to represent a unique car - NewCar(Car)
-    """
+class NewCar(CarConstructor):
+    """Class to create car of a NewCar type"""
     def __init__(self):
-        super().__init__(Car1().wheels, Car2().engine)
+        super().__init__()
+        self.wheels = self.car1_wheels()
+        self.engine = self.car2_engine()
